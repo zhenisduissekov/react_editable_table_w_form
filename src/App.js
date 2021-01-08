@@ -67,13 +67,19 @@ class App extends Component {
 
   sendDataFile = () => {};
 
-  sendDataAPI = () => {};
+  sendDataAPI = () => {
+    this.setState({ data: [] });
+    alert("Data Sent");
+  };
+
+  clearData = () => {
+    this.setState({ data: [] });
+  };
 
   render() {
     return (
       <MuiThemeProvider>
         <div className="App">
-          <RaisedButton onClick={this.getDataFile}>Get Data</RaisedButton>
           <Form
             onSubmit={(submission) =>
               this.setState({
@@ -107,6 +113,9 @@ class App extends Component {
               },
             ]}
           />
+          <RaisedButton onClick={this.getDataFile}>Get Data</RaisedButton>
+          <RaisedButton onClick={this.sendDataAPI}>Send</RaisedButton>
+          <RaisedButton onClick={this.clearData}>Clear</RaisedButton>
         </div>
       </MuiThemeProvider>
     );
