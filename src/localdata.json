@@ -4,7 +4,7 @@
     "labels": {
       "job": "ping",
       "name": "www-google-com",
-      "type": "web"
+      "type": "wesb"
     }
   },
   {
