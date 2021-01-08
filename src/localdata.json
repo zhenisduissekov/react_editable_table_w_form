@@ -43,7 +43,7 @@
     "targets": ["8.8.8.8"],
     "labels": {
       "job": "ping",
-      "name": "ASssa",
+      "name": "moiserver",
       "type": "server"
     }
   },
@@ -51,7 +51,7 @@
     "targets": ["8.8.8.8"],
     "labels": {
       "job": "ping",
-      "name": "STSQL",
+      "name": "moiserver",
       "type": "server"
     }
   },
@@ -59,7 +59,7 @@
     "targets": ["8.8.8.8"],
     "labels": {
       "job": "ping",
-      "name": "SRV1000",
+      "name": "moiserver2",
       "type": "server"
     }
   }
