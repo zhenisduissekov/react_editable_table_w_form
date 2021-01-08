@@ -1,0 +1,225 @@
+[
+  {
+    "targets": ["8.8.8.8"],
+    "labels": {
+      "job": "ping",
+      "name": "www-google-com",
+      "type": "web"
+    }
+  },
+  {
+    "targets": ["www.niikmg.kz"],
+    "labels": {
+      "job": "ping",
+      "name": "www-niikmg-kz",
+      "type": "web"
+    }
+  },
+  {
+    "targets": ["www.kmg.kz"],
+    "labels": {
+      "job": "ping",
+      "name": "www-kmg-kz",
+      "type": "web"
+    }
+  },
+  {
+    "targets": ["172.20.103.141"],
+    "labels": {
+      "job": "ping",
+      "name": "test_windows_server",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.102.63"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-BS4",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.102.168"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-1C",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.102.177"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-1CSQL",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.103.253"],
+    "labels": {
+      "job": "ping",
+      "name": "SRV1000",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.102.9"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-EX1",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.102.12"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-EX2",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.103.161"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-1CDB",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.103.160"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-1CERP",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.102.69"],
+    "labels": {
+      "job": "ping",
+      "name": "AST12-ASDB1",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.102.70"],
+    "labels": {
+      "job": "ping",
+      "name": "AST12-ASDB2",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.102.71"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-DB2",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["172.20.114.24"],
+    "labels": {
+      "job": "ping",
+      "name": "vmware_vcenter"
+    }
+  },
+  {
+    "targets": ["172.20.114.10"],
+    "labels": {
+      "job": "ping",
+      "name": "AST16-hv04",
+      "type": "server"
+    }
+  },
+  {
+    "targets": ["10.10.10.238"],
+    "labels": {
+      "job": "ping",
+      "name": "F15-sw3750-stack",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.230"],
+    "labels": {
+      "job": "ping",
+      "name": "f5_sw3750",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.241"],
+    "labels": {
+      "job": "ping",
+      "name": "f6_sw3850",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.250"],
+    "labels": {
+      "job": "ping",
+      "name": "f7_sw3850",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.237"],
+    "labels": {
+      "job": "ping",
+      "name": "f8_sw3850",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.234"],
+    "labels": {
+      "job": "ping",
+      "name": "f9_sw3850",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.233"],
+    "labels": {
+      "job": "ping",
+      "name": "f10_sw3850",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.235"],
+    "labels": {
+      "job": "ping",
+      "name": "f13_sw3750_2stack",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.243"],
+    "labels": {
+      "job": "ping",
+      "name": "f14_sw3850",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.238"],
+    "labels": {
+      "job": "ping",
+      "name": "f15_sw3850_2stack",
+      "type": "network_device"
+    }
+  },
+  {
+    "targets": ["10.10.10.244"],
+    "labels": {
+      "job": "ping",
+      "name": "sw3850",
+      "type": "network_device"
+    }
+  }
+]
