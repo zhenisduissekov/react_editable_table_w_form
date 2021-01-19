@@ -10,6 +10,7 @@ import Form from "./Form";
 import Table from "./Table";
 import localdata from "./localdata.json";
 // import MyButton from "react-bootstrap/Button";
+
 injectTapEventPlugin();
 
 class App extends React.Component {
@@ -19,8 +20,13 @@ class App extends React.Component {
       data: [],
       editIdx: -1,
       headers: [],
+      openInputForm: false,
     };
   }
+
+  togglePopup = (state) => {
+    this.setState({ openInputForm: !this.state.openInputForm });
+  };
 
   handleRemove = (i) => {
     this.setState((state) => ({
@@ -102,13 +108,6 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div className="App">
-          <Form
-            onSubmit={(submission) =>
-              this.setState({
-                data: [...this.state.data, submission],
-              })
-            }
-          />
           <Table
             handleRemove={this.handleRemove}
             startEditing={this.startEditing}
@@ -118,9 +117,25 @@ class App extends React.Component {
             data={this.state.data}
             header={this.state.headers}
           />
-          <RaisedButton onClick={this.getDataFile}>Get Data</RaisedButton>
-          <RaisedButton onClick={this.sendDataAPI}>Send</RaisedButton>
-          <RaisedButton onClick={this.clearData}>Clear</RaisedButton>
+          {!this.state.openInputForm && (
+            <div>
+              <RaisedButton onClick={this.getDataFile}>Open File</RaisedButton>
+              <RaisedButton onClick={this.sendDataAPI}>Save File</RaisedButton>
+              <RaisedButton onClick={this.clearData}>Clear Table</RaisedButton>
+              <RaisedButton onClick={this.togglePopup}>Input Form</RaisedButton>
+            </div>
+          )}
+
+          {this.state.openInputForm && (
+            <Form
+              onSubmit={(submission) =>
+                this.setState({
+                  data: [...this.state.data, submission],
+                })
+              }
+              handleClose={this.togglePopup}
+            />
+          )}
         </div>
       </MuiThemeProvider>
     );

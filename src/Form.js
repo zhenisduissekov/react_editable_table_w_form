@@ -3,8 +3,13 @@ import TextField from "material-ui/TextField";
 //import Button from "react-bootstrap/Button";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import RaisedButton from "material-ui/RaisedButton";
+import "./Form.css";
 
 export default class Form extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     target: "",
     targetError: "",
@@ -71,53 +76,60 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <form>
-        <TextField
-          name="target"
-          hintText="target"
-          floatingLabelText="target"
-          value={this.state.target}
-          onChange={(e) => this.change(e)}
-          errorText={this.state.targetError}
-          floatingLabelFixed
-        />
-        <br />
-        <TextField
-          name="job"
-          hintText="job"
-          floatingLabelText="job"
-          value={this.state.job}
-          onChange={(e) => this.change(e)}
-          errorText={this.state.jobError}
-          floatingLabelFixed
-        />
-        <br />
-        <TextField
-          name="name"
-          hintText="name"
-          floatingLabelText="name"
-          value={this.state.name}
-          onChange={(e) => this.change(e)}
-          errorText={this.state.nameError}
-          floatingLabelFixed
-        />
-        <br />
-        <TextField
-          name="type"
-          hintText="type"
-          floatingLabelText="type"
-          value={this.state.type}
-          onChange={(e) => this.change(e)}
-          errorText={this.state.typeError}
-          floatingLabelFixed
-        />
-        <br />
-        <RaisedButton
-          label="Submit"
-          onClick={(e) => this.onSubmit(e)}
-          primary
-        />
-      </form>
+      <div className="popup-box">
+        <div className="box">
+          <span className="close-icon" onClick={this.props.handleClose}>
+            x
+          </span>
+          <form>
+            <TextField
+              name="target"
+              hintText="target"
+              floatingLabelText="target"
+              value={this.state.target}
+              onChange={(e) => this.change(e)}
+              errorText={this.state.targetError}
+              floatingLabelFixed
+            />
+            <br />
+            <TextField
+              name="job"
+              hintText="job"
+              floatingLabelText="job"
+              value={this.state.job}
+              onChange={(e) => this.change(e)}
+              errorText={this.state.jobError}
+              floatingLabelFixed
+            />
+            <br />
+            <TextField
+              name="name"
+              hintText="name"
+              floatingLabelText="name"
+              value={this.state.name}
+              onChange={(e) => this.change(e)}
+              errorText={this.state.nameError}
+              floatingLabelFixed
+            />
+            <br />
+            <TextField
+              name="type"
+              hintText="type"
+              floatingLabelText="type"
+              value={this.state.type}
+              onChange={(e) => this.change(e)}
+              errorText={this.state.typeError}
+              floatingLabelFixed
+            />
+            <br />
+            <RaisedButton
+              label="Submit"
+              onClick={(e) => this.onSubmit(e)}
+              primary
+            />
+          </form>
+        </div>
+      </div>
     );
   }
 }
