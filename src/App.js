@@ -9,6 +9,7 @@ import "./App.css";
 import Form from "./Form";
 import Table from "./Table";
 import localdata from "./localdata.json";
+import Header from "./Header";
 // import MyButton from "react-bootstrap/Button";
 
 injectTapEventPlugin();
@@ -108,6 +109,24 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div className="App">
+          <div>
+            {!this.state.openInputForm && (
+              <div>
+                <RaisedButton onClick={this.getDataFile}>
+                  Open File
+                </RaisedButton>
+                <RaisedButton onClick={this.sendDataAPI}>
+                  Save File
+                </RaisedButton>
+                <RaisedButton onClick={this.clearData}>
+                  Clear Table
+                </RaisedButton>
+                <RaisedButton onClick={this.togglePopup}>
+                  Input Form
+                </RaisedButton>
+              </div>
+            )}
+          </div>
           <Table
             handleRemove={this.handleRemove}
             startEditing={this.startEditing}
@@ -117,14 +136,6 @@ class App extends React.Component {
             data={this.state.data}
             header={this.state.headers}
           />
-          {!this.state.openInputForm && (
-            <div>
-              <RaisedButton onClick={this.getDataFile}>Open File</RaisedButton>
-              <RaisedButton onClick={this.sendDataAPI}>Save File</RaisedButton>
-              <RaisedButton onClick={this.clearData}>Clear Table</RaisedButton>
-              <RaisedButton onClick={this.togglePopup}>Input Form</RaisedButton>
-            </div>
-          )}
 
           {this.state.openInputForm && (
             <Form
@@ -134,6 +145,7 @@ class App extends React.Component {
                 })
               }
               handleClose={this.togglePopup}
+              headers={this.state.headers}
             />
           )}
         </div>

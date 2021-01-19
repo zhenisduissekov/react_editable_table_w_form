@@ -8,6 +8,7 @@ import "./Form.css";
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.headers);
   }
 
   state = {
@@ -83,8 +84,8 @@ export default class Form extends React.Component {
           </span>
           <form>
             <TextField
-              name="target"
-              hintText="target"
+              name={this.props.headers[1].name}
+              hintText={this.props.headers[1].name}
               floatingLabelText="target"
               value={this.state.target}
               onChange={(e) => this.change(e)}
