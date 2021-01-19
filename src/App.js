@@ -1,5 +1,3 @@
-// НУЖНЫЙ ТУТОРИАЛ
-// https://www.youtube.com/watch?v=wi_vD0Yvc0g&list=RDCMUC-8QAzbLcRglXeN_MY9blyw&start_radio=1&t=202
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import injectTapEventPlugin from "react-tap-event-plugin";
@@ -97,12 +95,12 @@ class App extends React.Component {
   sendDataFile = () => {};
 
   sendDataAPI = () => {
-    this.setState({ data: [] });
-    alert("Data Sent");
+    this.setState({ data: [], headers: [] });
+    alert("File Saved");
   };
 
   clearData = () => {
-    this.setState({ data: [] });
+    this.setState({ data: [], headers: [] });
   };
 
   render() {
@@ -121,9 +119,11 @@ class App extends React.Component {
                 <RaisedButton onClick={this.clearData}>
                   Clear Table
                 </RaisedButton>
-                <RaisedButton onClick={this.togglePopup}>
-                  Input Form
-                </RaisedButton>
+                {this.state.headers && this.state.headers.length > 0 && (
+                  <RaisedButton onClick={this.togglePopup}>
+                    Input Form
+                  </RaisedButton>
+                )}
               </div>
             )}
           </div>

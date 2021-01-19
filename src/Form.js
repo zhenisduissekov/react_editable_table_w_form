@@ -84,9 +84,9 @@ export default class Form extends React.Component {
           </span>
           <form>
             <TextField
-              name={this.props.headers[1].name}
-              hintText={this.props.headers[1].name}
-              floatingLabelText="target"
+              name={this.props.headers[0].name}
+              hintText={this.props.headers[0].name}
+              floatingLabelText={this.props.headers[0].name}
               value={this.state.target}
               onChange={(e) => this.change(e)}
               errorText={this.state.targetError}
@@ -94,9 +94,9 @@ export default class Form extends React.Component {
             />
             <br />
             <TextField
-              name="job"
-              hintText="job"
-              floatingLabelText="job"
+              name={this.props.headers[1].name}
+              hintText={this.props.headers[1].name}
+              floatingLabelText={this.props.headers[1].name}
               value={this.state.job}
               onChange={(e) => this.change(e)}
               errorText={this.state.jobError}
@@ -104,9 +104,9 @@ export default class Form extends React.Component {
             />
             <br />
             <TextField
-              name="name"
-              hintText="name"
-              floatingLabelText="name"
+              name={this.props.headers[2].name}
+              hintText={this.props.headers[2].name}
+              floatingLabelText={this.props.headers[2].name}
               value={this.state.name}
               onChange={(e) => this.change(e)}
               errorText={this.state.nameError}
@@ -114,9 +114,9 @@ export default class Form extends React.Component {
             />
             <br />
             <TextField
-              name="type"
-              hintText="type"
-              floatingLabelText="type"
+              name={this.props.headers[3].name}
+              hintText={this.props.headers[3].name}
+              floatingLabelText={this.props.headers[3].name}
               value={this.state.type}
               onChange={(e) => this.change(e)}
               errorText={this.state.typeError}
