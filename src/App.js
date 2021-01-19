@@ -1,6 +1,6 @@
 // НУЖНЫЙ ТУТОРИАЛ
 // https://www.youtube.com/watch?v=wi_vD0Yvc0g&list=RDCMUC-8QAzbLcRglXeN_MY9blyw&start_radio=1&t=202
-import React, { Component } from "react";
+import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import RaisedButton from "material-ui/RaisedButton";
@@ -9,14 +9,18 @@ import "./App.css";
 import Form from "./Form";
 import Table from "./Table";
 import localdata from "./localdata.json";
-
+// import MyButton from "react-bootstrap/Button";
 injectTapEventPlugin();
 
-class App extends Component {
-  state = {
-    data: [],
-    editIdx: -1,
-  };
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      editIdx: -1,
+      headers: [],
+    };
+  }
 
   handleRemove = (i) => {
     this.setState((state) => ({
@@ -51,18 +55,36 @@ class App extends Component {
 
   getDataFile = () => {
     var alist = [];
+    var headers = this.getHeaders(localdata[0]);
     localdata.map((item) => {
       alist = [
         ...alist,
         {
-          target: item["targets"][0],
-          job: item["labels"]["job"],
-          name: item["labels"]["name"],
-          type: item["labels"]["type"],
+          [headers[0].name]: item[[headers[0].name]],
+          [headers[1].name]: item.labels.job,
+          [headers[2].name]: item.labels.name,
+          [headers[3].name]: item.labels.type,
         },
       ];
     });
     this.setState({ data: alist });
+  };
+
+  getHeaders = (source) => {
+    const keyify = (obj, prefix = "") =>
+      Object.keys(obj).reduce((res, el) => {
+        if (typeof obj[el] === "object" && obj[el] !== null) {
+          return [...res, ...keyify(obj[el], prefix + el)];
+        }
+        if (el === "0") return [...res, prefix];
+        else return [...res, prefix + "." + el];
+      }, []);
+
+    var headers = keyify(source).map(function (currentValue) {
+      return { name: currentValue, prop: currentValue };
+    });
+    this.setState({ headers: headers });
+    return headers;
   };
 
   sendDataFile = () => {};
@@ -94,24 +116,7 @@ class App extends Component {
             stopEditing={this.stopEditing}
             handleChange={this.handleChange}
             data={this.state.data}
-            header={[
-              {
-                name: "target",
-                prop: "target",
-              },
-              {
-                name: "job",
-                prop: "job",
-              },
-              {
-                name: "name",
-                prop: "name",
-              },
-              {
-                name: "type",
-                prop: "type",
-              },
-            ]}
+            header={this.state.headers}
           />
           <RaisedButton onClick={this.getDataFile}>Get Data</RaisedButton>
           <RaisedButton onClick={this.sendDataAPI}>Send</RaisedButton>
