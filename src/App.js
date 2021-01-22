@@ -20,6 +20,7 @@ class App extends React.Component {
       editIdx: -1,
       headers: [],
       openInputForm: false,
+      file: null,
     };
   }
 
@@ -103,6 +104,14 @@ class App extends React.Component {
     this.setState({ data: [], headers: [] });
   };
 
+  onChangeFile(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    var file = event.target.files[0];
+    console.log(file);
+    this.setState({ file: file }); /// if you want to upload latter
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -148,6 +157,15 @@ class App extends React.Component {
               headers={this.state.headers}
             />
           )}
+          <div>
+            <i className="plus icon"></i>
+            <input
+              directory="/"
+              webkitdirectory="/"
+              type="file"
+              onChange={this.onChangeFile.bind(this)}
+            />
+          </div>
         </div>
       </MuiThemeProvider>
     );
